@@ -1,0 +1,90 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmokeGuard.MainPage"
+             BackgroundColor="#EAF7EB">
+
+    <Grid RowDefinitions="Auto, *" Padding="20">
+        <!-- Header -->
+        <StackLayout BackgroundColor="#3DA18D" Padding="10">
+            <Image Source="smokeguard_logo.png" HeightRequest="60" HorizontalOptions="Center"/>
+            <Label Text="Stel uw limiet voor deze week in"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   Margin="10"/>
+            <Entry x:Name="LimitEntry"
+                   Placeholder="Uw limiet"
+                   Keyboard="Numeric"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   HorizontalOptions="Fill"/>
+            <Button Text="Bevestig limiet"
+                    BackgroundColor="#89D3BA"
+                    TextColor="White"
+                    Margin="10,20,10,0"/>
+        </StackLayout>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+                <!-- Questionnaire -->
+                <Frame Padding="10" BackgroundColor="White" CornerRadius="10" Margin="0,20">
+                    <VerticalStackLayout>
+                        <Label Text="Korte vragenlijst"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#3DA18D"/>
+                        <Label Text="Helpt u ons een momentje? Door deze vragen te beantwoorden, kunnen we berekenen hoeveel geld u bespaart door minder te roken. Zo kunt u dit inzien."
+                               FontSize="14"
+                               TextColor="Black"
+                               Margin="0,10,0,20"/>
+
+                        <Entry Placeholder="Hoeveel sigaretten rookt u gemiddeld per dag?"
+                               Keyboard="Numeric"
+                               BackgroundColor="#F5F5F5"
+                               TextColor="Black"/>
+
+                        <Entry Placeholder="Wat is de prijs van één pakje sigaretten?"
+                               Keyboard="Numeric"
+                               BackgroundColor="#F5F5F5"
+                               TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Feed -->
+                <Label Text="Uw feed"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#3DA18D"
+                       Margin="0,20,0,10"/>
+                <Label Text="Momenteel is je feed nog leeg. Voeg vrienden toe om elkaar te steunen en samen jullie voortgang bij te houden! Zo blijf je gemotiveerd en zie je hoe zij het doen op hun reis om te minderen of te stoppen. Samen maken we het makkelijker – én besparen jullie flink op de kosten!"
+                       FontSize="14"
+                       TextColor="Black"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+    <!-- Bottom Navigation -->
+    <Grid Padding="10" BackgroundColor="White" VerticalOptions="End">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ImageButton Source="home_icon.png" Grid.Column="0" HeightRequest="40"/>
+        <ImageButton Source="friends_icon.png" Grid.Column="1" HeightRequest="40"/>
+        <ImageButton Source="profile_icon.png" Grid.Column="2" HeightRequest="40"/>
+    </Grid>
+
+    <Grid>
+        <ListView x:Name="RecordsListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Counter}" Detail="{Binding Date}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>
