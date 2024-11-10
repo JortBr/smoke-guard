@@ -14,7 +14,7 @@ db = mysql.connector.connect(
 def home():
 	return "API is running!"
 
-@app.route('/get_records', methods=["GET"]
+@app.route("/get_records", methods=["GET"])
 def get_records():
 	try:
 		db = mysql.connector.connect(host="localhost", user="student", password="Student@123", database="smartguard")
