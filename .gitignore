@@ -54,6 +54,9 @@ ipch/
 *.vsp
 *.vspx
 
+# Voeg de volgende regel toe om de .vs-map te negeren
+.vs/
+
 # Guidance Automation Toolkit
 *.gpState
 

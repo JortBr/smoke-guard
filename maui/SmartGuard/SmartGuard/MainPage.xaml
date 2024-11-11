@@ -3,9 +3,9 @@
              x:Class="SmokeGuard.MainPage"
              BackgroundColor="#EAF7EB">
 
-    <Grid RowDefinitions="Auto, *" Padding="20">
+    <Grid RowDefinitions="Auto, *, Auto">
         <!-- Header -->
-        <StackLayout BackgroundColor="#3DA18D" Padding="10">
+        <StackLayout BackgroundColor="#3DA18D" Padding="10" Grid.Row="0">
             <Image Source="smokeguard_logo.png" HeightRequest="60" HorizontalOptions="Center"/>
             <Label Text="Stel uw limiet voor deze week in"
                    FontSize="18"
@@ -62,29 +62,19 @@
                        TextColor="Black"/>
             </VerticalStackLayout>
         </ScrollView>
-    </Grid>
 
-    <!-- Bottom Navigation -->
-    <Grid Padding="10" BackgroundColor="White" VerticalOptions="End">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <!-- Bottom Navigation -->
+        <Grid Padding="10" BackgroundColor="White" VerticalOptions="End" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <ImageButton Source="home_icon.png" Grid.Column="0" HeightRequest="40"/>
-        <ImageButton Source="friends_icon.png" Grid.Column="1" HeightRequest="40"/>
-        <ImageButton Source="profile_icon.png" Grid.Column="2" HeightRequest="40"/>
-    </Grid>
-
-    <Grid>
-        <ListView x:Name="RecordsListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Counter}" Detail="{Binding Date}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <ImageButton Source="home_icon.png" Grid.Column="0" HeightRequest="40"/>
+            <ImageButton Source="friends_icon.png" Grid.Column="1" HeightRequest="40"/>
+            <ImageButton Source="profile_icon.png" Grid.Column="2" HeightRequest="40"/>
+        </Grid>
     </Grid>
 
 </ContentPage>
